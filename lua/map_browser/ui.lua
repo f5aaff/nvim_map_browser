@@ -11,7 +11,7 @@ local results_win_config = {}
 -- Helper to get only existing map
 local function get_existing_map()
     local files = {}
-    for _, file in ipairs(vim.v.map) do
+    for _, file in ipairs(vim.api.nvim_get_keymap("n")) do
         if vim.fn.filereadable(file) == 1 then
             table.insert(files, file)
         end
