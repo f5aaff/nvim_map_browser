@@ -10,13 +10,13 @@ local results_win_config = {}
 
 -- Helper to get only existing map
 local function get_existing_map()
-    local files = {}
-    for _, file in ipairs(vim.api.nvim_get_keymap("n")) do
-        if vim.fn.filereadable(file) == 1 then
-            table.insert(files, file)
+    local mappings = {}
+    for _, map in ipairs(vim.api.nvim_get_keymap("n")) do
+            local display = string.format("%-15s → %s", map.lhs, map.rhs or "")
+            table.insert(mappings, display)
         end
     end
-    return files
+    return mappings
 end
 
 -- Function to open the main input window for filtering items
