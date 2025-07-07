@@ -15,7 +15,8 @@ local function get_existing_map()
 
     for _, mode in ipairs(modes) do
         for _, map in ipairs(vim.api.nvim_get_keymap(mode)) do
-            local display = string.format("%s | %s → %s",mode, map.lhs, map.rhs or "")
+            local desc = map.desc or ""
+            local display = string.format("%s | %s → %s | ",mode, map.lhs, map.rhs or "", desc)
             table.insert(mappings,display)
         end
     end
