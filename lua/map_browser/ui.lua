@@ -15,7 +15,6 @@ local function get_existing_map()
             local display = string.format("%-15s → %s", map.lhs, map.rhs or "")
             table.insert(mappings, display)
         end
-    end
     return mappings
 end
 
